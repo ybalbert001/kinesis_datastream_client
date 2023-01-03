@@ -1,6 +1,7 @@
 import sys
 import json
 import random
+import time
 
 from boto import kinesis
 
@@ -27,6 +28,7 @@ kinesis_client = kinesis.connect_to_region(region_name)
 while True:
   idx = int(random.uniform(0, data_len))
   test_record = data_records[idx]
+  time.sleep(0.1)
 
   kinesis_client.put_record(
     stream_name,
