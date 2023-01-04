@@ -23,7 +23,7 @@ kinesis_client = boto3.client('kinesis',region_name=region_name)
 
 for item_id,dict_item in enumerate(data_records):
   dict_item.update({"id": item_id})
-
+  time.sleep(0.5)
 
   kinesis_client.put_record(
     StreamName=stream_name,
